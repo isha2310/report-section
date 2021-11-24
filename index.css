@@ -112,3 +112,22 @@
 .report_element3{
     width: 100%;
 }
+.report_brandwise_table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.report_table-data{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: #c9e6f1;
+}
+.report_table_header{
+background-color: black!important;
+color: white;
+}
