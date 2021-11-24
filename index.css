@@ -3,11 +3,11 @@
   width: 100%;
   justify-content: space-between;
 }
-.report_calendar{
-    background: #9130db;
-    color: white;
-    width: 25%;
-    padding: 5px 10px;
+.report_calendar {
+  background: #9130db;
+  color: white;
+  width: 25%;
+  padding: 5px 10px;
 }
 .report_column {
   background-color: #f8dde2;
@@ -29,8 +29,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-#report_heading1{
-    width: 23%;
+#report_heading1 {
+  width: 23%;
 }
 #report_heading2 {
   width: 34%;
@@ -39,7 +39,7 @@
   width: 11%;
 }
 #report_heading4 {
-    width: 23%;
+  width: 23%;
 }
 .report_element {
   background-color: white;
@@ -57,7 +57,7 @@
   background-color: pink;
   display: flex;
   justify-content: space-around;
-  padding: 14px
+  padding: 14px;
 }
 .dropbtn {
   background-color: white;
@@ -95,22 +95,22 @@
 .dropdown a:hover {
   background-color: #ddd;
 }
-.showDropdown{
-    display: block;
+.showDropdown {
+  display: block;
 }
-.dropdown_arrow{
-    height: 14px;
-    width: 14px;
-    transform: rotate(90deg);
+.dropdown_arrow {
+  height: 14px;
+  width: 14px;
+  transform: rotate(90deg);
 }
-.report_element1{
-    width: 48%;
+.report_element1 {
+  width: 48%;
 }
-.report_element2{
-    width: 32%;
+.report_element2 {
+  width: 32%;
 }
-.report_element3{
-    width: 100%;
+.report_element3 {
+  width: 100%;
 }
 .report_brandwise_table {
   font-family: arial, sans-serif;
@@ -118,7 +118,7 @@
   width: 100%;
 }
 
-.report_table-data{
+.report_table-data {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -127,7 +127,13 @@
 tr:nth-child(odd) {
   background-color: #c9e6f1;
 }
-.report_table_header{
-background-color: black!important;
-color: white;
+.report_table_header {
+  background-color: black !important;
+  color: white;
+}
+.report_brandwise_table_container {
+  width: 100%;
+  height: fit-content;
+  overflow: scroll;
+  overflow-y: auto;
 }
