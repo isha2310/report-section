@@ -39,6 +39,7 @@ $(document).ready(function () {
         div.append(p1,p2)
         $("#report_heading3_div").append(div)
     })
+    
     arr.forEach((ele) => {
         let div = document.createElement("div")
         div.classList.add("report_element", "report_element1")
