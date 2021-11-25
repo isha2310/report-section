@@ -1,3 +1,9 @@
+body{
+  margin: 0;
+}
+.report_container{
+  width: 90%;
+}
 .reports {
   display: flex;
   width: 100%;
@@ -139,4 +145,52 @@ tr:nth-child(odd) {
   height: fit-content;
   overflow: scroll;
   overflow-y: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  #report_heading1{
+    width: 22%;
+  }
+  #report_heading2{
+    width: 33%;
+  }
+  #report_heading4{
+    width: 22%;
+  }
+  .report-element_count{
+    font-size: 1.2em;
+  }
+  .dropbtn{
+    width: 230px;
+  }
+}
+@media screen and (max-width: 880px) {
+  .report_container{
+    width: 100%;
+  }
+  .report-element_count{
+    font-size: 1em;
+  }
+  .report_element1, .report_element2, .report_element3{
+    width: 100%;
+  }
+  .report_header_heading{
+    width: 52%;
+  }
+  .report_calendar{
+    width: 38%;
+  }
+  .report_column{
+    padding: 10px 6px;
+  }
+  .report_selectors{
+    padding: 7px 0px;
+    width: 100%;
+  }
+  .dropbtn{
+    width: 100px;
+  }
+  #report_heading1, #report_heading2,#report_heading3, #report_heading4{
+    width: 22%;
+  }
 }
