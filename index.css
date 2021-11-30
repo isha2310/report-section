@@ -1,6 +1,7 @@
 body{
   margin: 0;
   max-width: 100vw;
+  padding: 10px;
 }
 .report_container{
   width: 90%;
@@ -14,7 +15,28 @@ body{
   background: #9130db;
   color: white;
   width: 25%;
-  padding: 5px 10px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.report_calendar_picker::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  display: block;
+  background: url(https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853) no-repeat;
+  transform: rotate(90deg);
+  background-size: cover;
+  width: 10px;
+  height: 10px;
+  filter: invert(1);
+  cursor: pointer;
+}
+.report_calendar_picker{
+  border: none;
+  background-color: #9130db;
+  color: white;
+}
+.report_calendar_picker:focus{
+  outline: none;
 }
 .report_column {
   background-color: #f8dde2;
@@ -47,19 +69,21 @@ body{
   width: 11%;
 }
 #report_heading4 {
-  width: 23%;
+  width: 25%;
 }
 .report_element {
   background-color: white;
   margin-bottom: 5px;
+  padding: 0px 2px;
 }
 .report-element_count {
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin: 0;
   margin-bottom: 18px;
 }
 .report-element_heading {
   margin-bottom: 5px;
+  font-size: 12px;
 }
 .report_selectors {
   background-color: pink;
@@ -112,10 +136,10 @@ body{
   transform: rotate(90deg);
 }
 .report_element1 {
-  width: 48%;
+  width: 47%;
 }
 .report_element2 {
-  width: 32%;
+  width: 31%;
 }
 .report_element3 {
   width: 100%;
@@ -167,6 +191,9 @@ tr:nth-child(odd) {
   }
 }
 @media screen and (max-width: 880px) {
+  body{
+    padding: 0;
+  }
   .report_container{
     width: 100%;
   }
@@ -175,6 +202,8 @@ tr:nth-child(odd) {
   }
   .report_element1, .report_element2, .report_element3{
     width: 100%;
+    overflow: hidden;
+    height: 72px;
   }
   .report_header_heading{
     width: 52%;
@@ -194,5 +223,12 @@ tr:nth-child(odd) {
   }
   #report_heading1, #report_heading2,#report_heading3, #report_heading4{
     width: 22%;
+  }
+  .report_column_heading{
+    height: 40px;
+  }
+  .report_calendar_picker::-webkit-calendar-picker-indicator{
+    width: 2px;
+    height: 2px;
   }
 }
