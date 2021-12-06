@@ -148,6 +148,7 @@ body{
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
 }
 
 .report_table-data {
@@ -172,7 +173,15 @@ tr:nth-child(odd) {
   overflow: scroll;
   overflow-y: auto;
 }
-
+.table_data{
+  width: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.table_brand{
+  width: 130px;
+}
 @media screen and (max-width: 1100px) {
   #report_heading1{
     width: 22%;
