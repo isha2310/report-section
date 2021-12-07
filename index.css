@@ -182,15 +182,24 @@ tr:nth-child(odd) {
 .table_brand{
   width: 130px;
 }
+.report-element_count_4{
+  margin: 0;
+}
+.report-element_heading4{
+  margin-top: 10px;
+}
 @media screen and (max-width: 1100px) {
   #report_heading1{
-    width: 22%;
+    width: 21%;
   }
   #report_heading2{
     width: 33%;
   }
+  #report_heading3{
+    width: 10%;
+  }
   #report_heading4{
-    width: 22%;
+    width: 26%;
   }
   .report-element_count{
     font-size: 1.2em;

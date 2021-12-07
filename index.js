@@ -88,57 +88,109 @@ $(document).ready(function () {
                 "Total Freebie Qty",
               ];
 
-              for (let key of Object.keys(arr_users)) {
-                let div = document.createElement("div");
+            //   for (let key of Object.keys(arr_users)) {
+            //     let div = document.createElement("div");
+            //     div.classList.add("report_element", "report_element1");
+            //     let p1 = document.createElement("p");
+            //     p1.innerHTML = key;
+            //     p1.classList.add("report-element_heading");
+            //     let p2 = document.createElement("p");
+            //     p2.innerHTML = arr_users[key];
+            //     p2.classList.add("report-element_count");
+            //     div.append(p1, p2);
+            //     $("#report_heading1_div").append(div);
+            // }
+            arr0.forEach((key) => {
+              let div = document.createElement("div");
                 div.classList.add("report_element", "report_element1");
                 let p1 = document.createElement("p");
                 p1.innerHTML = key;
                 p1.classList.add("report-element_heading");
                 let p2 = document.createElement("p");
-                p2.innerHTML = arr_users[key];
+                p2.innerHTML = arr_users[key] || 'N/A' ;
                 p2.classList.add("report-element_count");
                 div.append(p1, p2);
                 $("#report_heading1_div").append(div);
-            }
+            })
 
-            for (let key of Object.keys(arr_fields)) {
-                let div = document.createElement("div");
+            // for (let key of Object.keys(arr_fields)) {
+            //     let div = document.createElement("div");
+            //     div.classList.add("report_element", "report_element2");
+            //     let p1 = document.createElement("p");
+            //     p1.innerHTML = key;
+            //     p1.classList.add("report-element_heading");
+            //     let p2 = document.createElement("p");
+            //     p2.innerHTML = arr_fields[key];
+            //     p2.classList.add("report-element_count");
+            //     div.append(p1, p2);
+            //     $("#report_heading2_div").append(div);
+            // }
+
+            arr1.forEach((key) => {
+              let div = document.createElement("div");
                 div.classList.add("report_element", "report_element2");
                 let p1 = document.createElement("p");
                 p1.innerHTML = key;
                 p1.classList.add("report-element_heading");
                 let p2 = document.createElement("p");
-                p2.innerHTML = arr_fields[key];
+                p2.innerHTML = arr_fields[key] || 'N/A';
                 p2.classList.add("report-element_count");
                 div.append(p1, p2);
                 $("#report_heading2_div").append(div);
-            }
+            })
 
-            for (let key of Object.keys(arr_miscellaneous)) {
-                let div = document.createElement("div");
+            // for (let key of Object.keys(arr_miscellaneous)) {
+            //     let div = document.createElement("div");
+            //     div.classList.add("report_element", "report_element3");
+            //     let p1 = document.createElement("p");
+            //     p1.innerHTML = key;
+            //     p1.classList.add("report-element_heading");
+            //     let p2 = document.createElement("p");
+            //     p2.innerHTML = arr_miscellaneous[key];
+            //     p2.classList.add("report-element_count");
+            //     div.append(p1, p2);
+            //     $("#report_heading3_div").append(div);
+            // } 
+
+            arr2.forEach((key) => {
+              let div = document.createElement("div");
                 div.classList.add("report_element", "report_element3");
                 let p1 = document.createElement("p");
                 p1.innerHTML = key;
                 p1.classList.add("report-element_heading");
                 let p2 = document.createElement("p");
-                p2.innerHTML = arr_miscellaneous[key];
+                p2.innerHTML = arr_miscellaneous[key] || 'N/A' ;
                 p2.classList.add("report-element_count");
                 div.append(p1, p2);
                 $("#report_heading3_div").append(div);
-            } 
+            })
             
-            for (let key of Object.keys(arr_nmv)) {
-                let div = document.createElement("div");
+            // for (let key of Object.keys(arr_nmv)) {
+            //     let div = document.createElement("div");
+            //     div.classList.add("report_element", "report_element1");
+            //     let p1 = document.createElement("p");
+            //     p1.innerHTML = key;
+            //     p1.classList.add("report-element_heading");
+            //     let p2 = document.createElement("p");
+            //     p2.innerHTML = arr_nmv[key];
+            //     p2.classList.add("report-element_count");
+            //     div.append(p1, p2);
+            //     $("#report_heading4_div").append(div);
+            // }
+
+            arr3.forEach((key) => {
+              let div = document.createElement("div");
                 div.classList.add("report_element", "report_element1");
                 let p1 = document.createElement("p");
                 p1.innerHTML = key;
-                p1.classList.add("report-element_heading");
+                p1.classList.add("report-element_heading", "report-element_heading4");
                 let p2 = document.createElement("p");
-                p2.innerHTML = arr_nmv[key];
-                p2.classList.add("report-element_count");
+                p2.innerHTML = arr_nmv[key] || 'N/A' ;
+                p2.classList.add("report-element_count", "report-element_count_4");
                 div.append(p1, p2);
                 $("#report_heading4_div").append(div);
-            }
+            })
+
             // let table_data = [
             //   ["Brand", "Qty", "MRP", "NMV", "Retail"],
             //   ["Good Vibes", 5, 500, 654, 5463],
