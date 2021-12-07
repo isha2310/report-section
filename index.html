@@ -11,8 +11,8 @@
         <div class="report_header" >
             <div class="report_header_heading" >LifeTime Brand Report</div>
             <div class="report_calendar" >
-                <input type="date" class="report_calendar_picker" />
-                <input type="date" class="report_calendar_picker" />
+                <input type="date" class="report_calendar_picker" id="report_cal1" />
+                <input type="date" class="report_calendar_picker" id="report_cal2" />
             </div>
         </div>
         <div class="reports" >
@@ -46,35 +46,14 @@
                 <button class="dropbtn" id="dropbtn1">Brand Name
                     <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow" />
                 </button>
-                <div id="myDropdown1" class="dropdown-content">
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn" id="dropbtn2">Brand House
-                    <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853"  class="dropdown_arrow"/></button>
-                <div id="myDropdown2" class="dropdown-content">
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn" id="dropbtn3">Brand Type
-                    <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow" /></button>
-                <div id="myDropdown3" class="dropdown-content">
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
+                <div id="myDropdown1" class="dropdown-content dropdown_brand">
                 </div>
             </div>
         </div>
         <div style="width: 100%;" >
             <h4 style="margin: 10px 2px;" >BRAND WISE REPORT</h4>
             <div class="report_brandwise_table_container" >
-                <table class="report_brandwise_table" ></table>
+                <table class="report_brandwise_table" id="report_brandwise_table" ></table>
             </div>
         </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
