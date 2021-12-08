@@ -83,7 +83,7 @@ $(document).ready(function () {
           "NMV/ Purchasers",
           "Quantity/ Order",
         ];
-        let arr2 = ["MRP", "Quantity", "Discount %"];
+        let arr2 = ["MRP", "Qty", "Discount %"];
         let arr3 = [
           "NMV",
           "Offer Led MRP (Freebies)",
