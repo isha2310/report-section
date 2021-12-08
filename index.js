@@ -4,39 +4,7 @@ $(document).ready(function () {
   let to = 0
   let from = 0
 
-  let brands = [
-    "ACCOJE",
-    "The Woman's Company",
-    "Ustraa",
-    "LetsShave",
-    "Juicy Chemistry",
-    "La French",
-    "Arata",
-    "Coloressence",
-    "Prolixr",
-    "Echt Beauti",
-    "Globus Naturals",
-    "Beardo",
-    "Organic B",
-    "GLAMVEDA",
-    "Colorbar",
-    "Disguise Cosmetics",
-    "Pinq",
-    "Beard Hood",
-    "Khadi Essentials",
-    "Mancode",
-    "Sirona",
-    "St Botanica",
-    "Pee Safe",
-    "Auric Beauty",
-    "DoYou",
-    "Nishman",
-    "Pulp Cosmetics",
-    "Skin Secrets",
-    "TAC - The Ayurveda Co.",
-    "The Beauty Co",
-    "MCaffeine",
-  ];
+  let brands = ['ACCOJE', 'Arata', 'Auric Beauty', 'Beard Hood', 'Beardo', 'Colorbar', 'Coloressence', 'Disguise Cosmetics', 'DoYou', 'Echt Beauti', 'GLAMVEDA', 'Globus Naturals', 'Juicy Chemistry', 'Khadi Essentials', 'La French', 'LetsShave', 'MCaffeine', 'Mancode', 'Nishman', 'Organic B', 'Pee Safe', 'Pinq', 'Prolixr', 'Pulp Cosmetics', 'Sirona', 'Skin Secrets', 'St Botanica', 'TAC - The Ayurveda Co.', 'The Beauty Co', "The Woman's Company", 'Ustraa'];
 
   brands.forEach((brand) => {
     let div = document.querySelector(".dropdown_brand");
@@ -72,12 +40,12 @@ $(document).ready(function () {
   document.querySelector("#report_cal1").setAttribute("max", today);
 
   $("#report_cal1").on("change", function() {
-    val = $(this)[0].valueAsNumber
+    val = $(this)[0].value.toString()
     from = val
     update_table({from})
   })
   $("#report_cal2").on("change", function() {
-    val = $(this)[0].valueAsNumber
+    val = $(this)[0].value.toString()
     to = val
     update_table({to})
   })
@@ -101,8 +69,8 @@ $(document).ready(function () {
         let arr_miscellaneous = resp.miscellaneous;
         let arr_nmv = resp.nmv_freebies;
         let arr0 = [
-          "Total IVs",
-          "Total IV Users",
+          "IV",
+          "IV Users",
           "ATCs",
           "ATC Users",
           "Orders",
@@ -138,7 +106,7 @@ $(document).ready(function () {
           p1.innerHTML = key;
           p1.classList.add("report-element_heading");
           let p2 = document.createElement("p");
-          p2.innerHTML = arr_users[key] || "N/A";
+          p2.innerHTML = resp[key] || "N/A";
           p2.classList.add("report-element_count");
           div.append(p1, p2);
           $("#report_heading1_div").append(div);
@@ -151,7 +119,7 @@ $(document).ready(function () {
           p1.innerHTML = key;
           p1.classList.add("report-element_heading");
           let p2 = document.createElement("p");
-          p2.innerHTML = arr_fields[key] || "N/A";
+          p2.innerHTML = resp[key] || "N/A";
           p2.classList.add("report-element_count");
           div.append(p1, p2);
           $("#report_heading2_div").append(div);
@@ -164,7 +132,7 @@ $(document).ready(function () {
           p1.innerHTML = key;
           p1.classList.add("report-element_heading");
           let p2 = document.createElement("p");
-          p2.innerHTML = arr_miscellaneous[key] || "N/A";
+          p2.innerHTML = resp[key] || "N/A";
           p2.classList.add("report-element_count");
           div.append(p1, p2);
           $("#report_heading3_div").append(div);
@@ -177,7 +145,7 @@ $(document).ready(function () {
           p1.innerHTML = key;
           p1.classList.add("report-element_heading", "report-element_heading4");
           let p2 = document.createElement("p");
-          p2.innerHTML = arr_nmv[key] || "N/A";
+          p2.innerHTML = resp[key] || "N/A";
           p2.classList.add("report-element_count", "report-element_count_4");
           div.append(p1, p2);
           $("#report_heading4_div").append(div);
@@ -284,14 +252,18 @@ $(document).ready(function () {
   function update_table(payload) {
     if (from ===0){
       document.querySelector("#report_cal1").setAttribute("value", today);
-      from = document.querySelector("#report_cal1").valueAsNumber
+      from = document.querySelector("#report_cal1").value.toString()
+    }
+    if (to ===0){
+      document.querySelector("#report_cal2").setAttribute("value", today);
+      to = document.querySelector("#report_cal2").value.toString()
     }
     let data = {brand: selectedBrand, to, from, ...payload}
-    data = JSON.stringify(payload);
+    let body_data = JSON.stringify(data);
     $.ajax({
       type: "POST",
       url: "http://34.132.95.222:8081/v1/getDataByFilter",
-      data: data,
+      data: body_data,
       crossDomain: true,
       contentType: "application/json",
       headers: {
@@ -299,11 +271,6 @@ $(document).ready(function () {
       },
       success: function (res) {
         console.log(res)
-        let resp = res.mainTable;
-        let arr_users = resp.user_funnel;
-        let arr_fields = resp.calculatedFields;
-        let arr_miscellaneous = resp.miscellaneous;
-        let arr_nmv = resp.nmv_freebies;
 
         let div1_children = [
           ...document.querySelector("#report_heading1_div").children,
@@ -320,19 +287,19 @@ $(document).ready(function () {
         //console.log(div1_children)
         div1_children.forEach((child) => {
           child.children[1].innerHTML =
-            arr_users[child.children[0].innerHTML] || "N/A";
+            res[child.children[0].innerHTML] || "N/A";
         });
         div2_children.forEach((child) => {
           child.children[1].innerHTML =
-            arr_fields[child.children[0].innerHTML] || "N/A";
+            res[child.children[0].innerHTML] || "N/A";
         });
         div3_children.forEach((child) => {
           child.children[1].innerHTML =
-            arr_miscellaneous[child.children[0].innerHTML] || "N/A";
+            res[child.children[0].innerHTML] || "N/A";
         });
         div4_children.forEach((child) => {
           child.children[1].innerHTML =
-            arr_nmv[child.children[0].innerHTML] || "N/A";
+            res[child.children[0].innerHTML] || "N/A";
         });
 
         let old_table = document.querySelector("#report_brandwise_table");
@@ -389,11 +356,13 @@ $(document).ready(function () {
             $(".report_brandwise_table").append(row);
           }
         });
-        let tab = res.brandWise;
-        tab.forEach((element) => {
           let row = document.createElement("tr");
           table_data[0].forEach((data) => {
-            let val = element[data] || "N/A";
+            let val
+            val = res[data] || "N/A";
+            if(data === 'Brand'){
+              val = selectedBrand
+            }
             let row_data = document.createElement("td");
             row_data.classList.add("report_table-data", "table_data");
             row_data.innerHTML = val;
@@ -403,7 +372,6 @@ $(document).ready(function () {
             row.append(row_data);
           });
           $(".report_brandwise_table").append(row);
-        });
       },
     });
   }
