@@ -373,7 +373,7 @@ $(document).ready(function () {
       error: function(request, error){
         console.log(error)
         $(".dropbtn")[0].innerHTML = `Brand Name <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow">`
-        alert("No data available for teh brand")
+        alert("No data available for the brand")
       }
     });
   }
