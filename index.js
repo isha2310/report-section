@@ -4,7 +4,7 @@ $(document).ready(function () {
   let to = 0
   let from = 0
 
-  let brands = ['ACCOJE', 'Arata', 'Auric Beauty', 'Beard Hood', 'Beardo', 'Colorbar', 'Coloressence', 'Disguise Cosmetics', 'DoYou', 'Echt Beauti', 'GLAMVEDA', 'Globus Naturals', 'Juicy Chemistry', 'Khadi Essentials', 'La French', 'LetsShave', 'MCaffeine', 'Mancode', 'Nishman', 'Organic B', 'Pee Safe', 'Pinq', 'Prolixr', 'Pulp Cosmetics', 'Sirona', 'Skin Secrets', 'St Botanica', 'TAC - The Ayurveda Co.', 'The Beauty Co', "The Woman's Company", 'Ustraa'];
+  let brands = ['Arata', 'Auric Beauty', 'Beard Hood', 'Beardo', 'Colorbar', 'Coloressence', 'Disguise Cosmetics', 'DoYou', 'Echt Beauti', 'GLAMVEDA', 'Globus Naturals', 'Juicy Chemistry', 'Khadi Essentials', 'La French', 'LetsShave', 'MCaffeine', 'Mancode', 'Nishman', 'Organic B', 'Pee Safe', 'Pinq', 'Prolixr', 'Pulp Cosmetics', 'Sirona', 'Skin Secrets', 'St Botanica', 'TAC - The Ayurveda Co.', 'The Beauty Co', "The Woman's Company", 'Ustraa'];
 
   brands.forEach((brand) => {
     let div = document.querySelector(".dropdown_brand");
@@ -15,7 +15,7 @@ $(document).ready(function () {
     a.addEventListener("click", function () {
       selectedBrand = brand
       update_table({ brand });
-      $("#dropbtn1")[0].innerHTML = brand;
+      $("#dropbtn1")[0].innerHTML = `${brand} <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow">`;
     });
     div.append(a);
   });
@@ -64,10 +64,6 @@ $(document).ready(function () {
       success: function (res) {
         console.log(res);
         let resp = res.mainTable;
-        let arr_users = resp.user_funnel;
-        let arr_fields = resp.calculatedFields;
-        let arr_miscellaneous = resp.miscellaneous;
-        let arr_nmv = resp.nmv_freebies;
         let arr0 = [
           "IV",
           "IV Users",
@@ -244,6 +240,7 @@ $(document).ready(function () {
       },
       error: function (request, error) {
         console.log(request, error);
+        alert("No data available for the brand!")
       },
     });
   }
@@ -373,6 +370,11 @@ $(document).ready(function () {
           });
           $(".report_brandwise_table").append(row);
       },
+      error: function(request, error){
+        console.log(error)
+        $(".dropbtn")[0].innerHTML = `Brand Name <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow">`
+        alert("No data available for teh brand")
+      }
     });
   }
 
