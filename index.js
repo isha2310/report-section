@@ -4,7 +4,7 @@ $(document).ready(function () {
   let to = 0
   let from = 0
 
-  let brands = ['Arata', 'Auric Beauty', 'Beard Hood', 'Beardo', 'Colorbar', 'Coloressence', 'Disguise Cosmetics', 'DoYou', 'Echt Beauti', 'GLAMVEDA', 'Globus Naturals', 'Juicy Chemistry', 'Khadi Essentials', 'La French', 'LetsShave', 'MCaffeine', 'Mancode', 'Nishman', 'Organic B', 'Pee Safe', 'Pinq', 'Prolixr', 'Pulp Cosmetics', 'Sirona', 'Skin Secrets', 'St Botanica', 'TAC - The Ayurveda Co.', 'The Beauty Co', "The Woman's Company", 'Ustraa'];
+  let brands = ['All Brands','Arata', 'Auric Beauty', 'Beard Hood', 'Beardo', 'Colorbar', 'Coloressence', 'Disguise Cosmetics', 'DoYou', 'Echt Beauti', 'GLAMVEDA', 'Globus Naturals', 'Juicy Chemistry', 'Khadi Essentials', 'La French', 'LetsShave', 'MCaffeine', 'Mancode', 'Nishman', 'Organic B', 'Pee Safe', 'Pinq', 'Prolixr', 'Pulp Cosmetics', 'Sirona', 'Skin Secrets', 'St Botanica', 'TAC - The Ayurveda Co.', 'The Beauty Co', "The Woman's Company", 'Ustraa'];
 
   brands.forEach((brand) => {
     let div = document.querySelector(".dropdown_brand");
@@ -14,7 +14,12 @@ $(document).ready(function () {
     a.innerHTML = brand;
     a.addEventListener("click", function () {
       selectedBrand = brand
-      update_table({ brand });
+      console.log(brand)
+      if(brand === 'All Brands'){
+        display_table({})
+      } else{
+        update_table({ brand });
+      }
       $("#dropbtn1")[0].innerHTML = `${brand} <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow">`;
     });
     div.append(a);
@@ -94,6 +99,24 @@ $(document).ready(function () {
           "Retailer NMV",
           "Total Freebie Qty",
         ];
+        let flag = true
+        try{
+          while (flag){
+            let d = document.querySelector(".report_element")
+            if(d!==null){
+              d.remove()
+            } 
+            let i = document.querySelector("tr")
+            if(i!==null){
+              i.remove()
+            }
+            if(d === null && i === null){
+              flag = false
+            }
+          }
+        } catch(e){
+          console.log(e)
+        }
 
         arr0.forEach((key) => {
           let div = document.createElement("div");
@@ -248,8 +271,9 @@ $(document).ready(function () {
 
   function update_table(payload) {
     if (from ===0){
-      document.querySelector("#report_cal1").setAttribute("value", today);
-      from = document.querySelector("#report_cal1").value.toString()
+      yesterday = ( d => new Date(d.setDate(d.getDate()-1)) )(new Date);
+      from = yesterday.toJSON().toString().slice(0, yesterday.toJSON().toString().indexOf('T'));
+      document.querySelector("#report_cal1").setAttribute("value", from);
     }
     if (to ===0){
       document.querySelector("#report_cal2").setAttribute("value", today);
@@ -257,6 +281,7 @@ $(document).ready(function () {
     }
     let data = {brand: selectedBrand, to, from, ...payload}
     let body_data = JSON.stringify(data);
+    console.log(body_data)
     $.ajax({
       type: "POST",
       url: "http://34.132.95.222:8081/v1/getDataByFilter",
@@ -370,10 +395,11 @@ $(document).ready(function () {
           });
           $(".report_brandwise_table").append(row);
       },
-      error: function(request, error){
-        console.log(error)
+      error: function(xhr, status, error){
         $(".dropbtn")[0].innerHTML = `Brand Name <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow">`
-        alert("No data available for the brand")
+        console.log(xhr, status, error)
+        var err = eval("(" + xhr.responseText + ")");
+  //alert(err.Message);
       }
     });
   }
