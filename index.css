@@ -1,20 +1,29 @@
 body{
   margin: 0;
   max-width: 100vw;
-  padding: 10px;
+  font-family: sans-serif;
+}
+.table_header{
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #efefef;
+  color: #343434;
+  padding: 20px;
+  font-weight: 500;
 }
 .report_container{
   width: 90%;
 }
 .reports {
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  padding: 20px;
+  background: #f8f8f8;
 }
 .report_calendar {
-  background: #9130db;
-  color: white;
-  width: 25%;
+  width: 30%;
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -32,90 +41,115 @@ body{
 }
 .report_calendar_picker{
   border: none;
-  background-color: #9130db;
-  color: white;
+  background-color: #f8f8f8;
+  color: #343434;
+  font-size: 14px;
+  font-weight: 600;
 }
 .report_calendar_picker:focus{
   outline: none;
 }
 .report_column {
-  background-color: #f8dde2;
-  text-align: center;
   padding: 10px;
 }
 .report_header_heading {
-  background-color: #2b2b72;
-  color: white;
-  width: 75%;
+  color: #343434;
+  width: 70%;
   padding: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  padding-bottom: 0;
 }
 .report_header {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  background-color: #f8f8f8;
 }
 .report_section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.report_column_heading{
+  font-size: 16px;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
 #report_heading1 {
-  width: 23%;
+  background-color: #ebf4ff;
+  width: 328px;
+  border: 1px solid #2f90ed;
+  border-radius: 8px;
 }
 #report_heading2 {
-  width: 34%;
+  width: 328px;
+  background: #fff2e2ad;
+  border: 1px solid #ffa800;
+  border-radius: 8px;
 }
 #report_heading3 {
-  width: 11%;
+  width: 160px;
+  background: #ee7a8333;
+  border: 1px solid #d81222;
+  border-radius: 8px;
 }
 #report_heading4 {
-  width: 25%;
+  width: 160px;
+  background: #19d81222;
+  border: 1px solid #2cb67d;
+  border-radius: 8px;
 }
 .report_element {
   background-color: white;
   margin-bottom: 5px;
-  padding: 0px 2px;
+  padding: 0px 12px;
+  width: 135px;
+  border-radius: 8px;
 }
 .report-element_count {
-  font-size: 1.3em;
+  font-size: 26px;
   margin: 0;
   margin-bottom: 18px;
 }
 .report-element_heading {
   margin-bottom: 5px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .report_selectors {
-  background-color: pink;
   display: flex;
-  justify-content: space-around;
   padding: 14px;
 }
 .dropbtn {
   background-color: white;
   color: black;
-  padding: 8px 14px;
-  font-size: 12px;
+  font-size: 14px;
   border: none;
   cursor: pointer;
-  width: 250px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 12px 20px;
+  border: 1px solid #efefef;
+  border-radius: 8px;
 }
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 510px;
+  border-radius: 8px;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 250px;
+  min-width: 510px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  height: 280px;
+  height: 292px;
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -125,6 +159,7 @@ body{
   padding: 10px 16px;
   text-decoration: none;
   display: block;
+  font-size: 14px;
 }
 
 .dropdown a:hover {
@@ -138,15 +173,19 @@ body{
   width: 14px;
   transform: rotate(90deg);
 }
-.report_element1, .report_element4 {
-  width: 47%;
+.dropbtn1_after{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+/* .report_element1, .report_element4 {
+  width: 39%;
 }
 .report_element2 {
   width: 31%;
 }
 .report_element3 {
   width: 100%;
-}
+} */
 .report_brandwise_table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -157,16 +196,12 @@ body{
 .report_table-data {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 4px;
-  font-size: 12px;
-}
-
-tr:nth-child(odd) {
-  background-color: #c9e6f1;
+  padding: 18px 20px;
+  background-color: white;
 }
 .report_table_header {
-  background-color: black !important;
-  color: white;
+  background-color: #efefef !important;
+    color: #343434;
   font-size: 14px;  
   font-weight: 500;
 }
@@ -184,9 +219,6 @@ tr:nth-child(odd) {
 }
 .table_brand{
   width: 130px;
-}
-.report-element_count_4{
-  margin: 0;
 }
 .report-element_heading4{
   margin-top: 10px;

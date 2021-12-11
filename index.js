@@ -38,11 +38,14 @@ $(document).ready(function () {
     mm = "0" + mm;
   }
 
+  let yesterday = ( d => new Date(d.setDate(d.getDate()-1)) )(new Date);
+  let df = yesterday.toJSON().toString().slice(0, yesterday.toJSON().toString().indexOf('T'));
+
   today = yyyy + "-" + mm + "-" + dd;
   console.log(today)
   document.querySelector("#report_cal2").setAttribute("value", today);
   document.querySelector("#report_cal2").setAttribute("max", today);
-  document.querySelector("#report_cal1").setAttribute("max", today);
+  document.querySelector("#report_cal1").setAttribute("max", df);
 
   $("#report_cal1").on("change", function() {
     val = $(this)[0].value.toString()
@@ -78,27 +81,13 @@ $(document).ready(function () {
           "Purchaser",
         ];
         let arr1 = [
-          "NMV/IV",
-          "NMV/IV_Users",
-          "Conversion Rate",
-          "NMV/ ATC",
-          "NMV/ ATC_Users",
           "ASP",
           "AOV",
-          "NMV/ Purchasers",
           "Quantity/ Order",
+          "Conversion Rate"
         ];
         let arr2 = ["MRP", "Qty", "Discount %"];
-        let arr3 = [
-          "NMV",
-          "Offer Led MRP (Freebies)",
-          "PB NMV",
-          "Sampling MRP (Freebies)",
-          "TP Only NMV",
-          "Liquidation MRP (Freebies)",
-          "Retailer NMV",
-          "Total Freebie Qty",
-        ];
+        let arr3 = ["NMV"];
         let flag = true
         try{
           while (flag){
@@ -200,28 +189,46 @@ $(document).ready(function () {
         //     $(".report_brandwise_table").append(row);
         //   }
         // });
+        // let table_data = [
+        //   [
+        //     "Brand",
+        //     "Qty",
+        //     "MRP",
+        //     "NMV",
+        //     "Retail",
+        //     "Orders",
+        //     "Coupons",
+        //     "IV",
+        //     "IV Users",
+        //     "convrsn_rate",
+        //     "ATC/IV Users",
+        //     "NMV/IV",
+        //     "NMV/User",
+        //     "ATCs",
+        //     "ATC_Users",
+        //     "AOV",
+        //     "ASP",
+        //     "Dscount%",
+        //     "Freebie_",
+        //     "Freebie_Qty",
+        //   ],
+        // ];
         let table_data = [
           [
             "Brand",
-            "Qty",
-            "MRP",
-            "NMV",
-            "Retail",
-            "Orders",
-            "Coupons",
             "IV",
             "IV Users",
-            "convrsn_rate",
-            "ATC/IV Users",
-            "NMV/IV",
-            "NMV/User",
             "ATCs",
             "ATC_Users",
-            "AOV",
+            "Orders",
+            "Purchasers",
             "ASP",
-            "Dscount%",
-            "Freebie_",
-            "Freebie_Qty",
+            "AOV",
+            "Qty",
+            "convrsn_rate",
+            "MRP",
+            "NMV",
+            "Dscount%"
           ],
         ];
         table_data.forEach((element, index) => {
@@ -336,25 +343,19 @@ $(document).ready(function () {
         let table_data = [
           [
             "Brand",
-            "Qty",
-            "MRP",
-            "NMV",
-            "Retail",
-            "Orders",
-            "Coupons",
             "IV",
             "IV Users",
-            "convrsn_rate",
-            "ATC/IV Users",
-            "NMV/IV",
-            "NMV/User",
             "ATCs",
             "ATC_Users",
-            "AOV",
+            "Orders",
+            "Purchasers",
             "ASP",
-            "Dscount%",
-            "Freebie_",
-            "Freebie_Qty",
+            "AOV",
+            "Qty",
+            "convrsn_rate",
+            "MRP",
+            "NMV",
+            "Dscount%"
           ],
         ];
         table_data.forEach((element, index) => {
@@ -398,19 +399,24 @@ $(document).ready(function () {
       error: function(xhr, status, error){
         $(".dropbtn")[0].innerHTML = `Brand Name <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow">`
         console.log(xhr, status, error)
-        var err = eval("(" + xhr.responseText + ")");
-  //alert(err.Message);
+        var err = xhr.responseJSON
+        alert(err.message);
       }
     });
   }
 
   $("#dropbtn1").on("click", function () {
+    $(this).toggleClass("dropbtn1_after")
     document.getElementById("myDropdown1").classList.toggle("showDropdown");
   });
 
   window.onclick = function (event) {
     if (!event.target.matches(".dropbtn")) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
+      let btn = document.getElementById("dropbtn1")
+      if(btn.classList.contains("dropbtn1_after")){
+        btn.classList.remove("dropbtn1_after")
+      }
+      let dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
