@@ -74,7 +74,7 @@ $(document).ready(function () {
       "Quantity/ Order",
       "Conversion Rate"
     ];
-    let arr2 = ["MRP", "Qty", "Discount %"];
+    let arr2 = ["MRP", "Qty", "Discount%"];
     let arr3 = ["NMV"];
     let flag = true
     try{
@@ -216,7 +216,7 @@ $(document).ready(function () {
         "convrsn_rate",
         "MRP",
         "NMV",
-        "Dscount%"
+        "Discount%"
       ],
     ];
     table_data.forEach((element, index) => {
