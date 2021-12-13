@@ -79,24 +79,24 @@ body{
 }
 #report_heading1 {
   background-color: #ebf4ff;
-  width: 328px;
+  width: 30%;
   border: 1px solid #2f90ed;
   border-radius: 8px;
 }
 #report_heading2 {
-  width: 328px;
+  width: 30%;
   background: #fff2e2ad;
   border: 1px solid #ffa800;
   border-radius: 8px;
 }
 #report_heading3 {
-  width: 160px;
+  width: 15%;
   background: #ee7a8333;
   border: 1px solid #d81222;
   border-radius: 8px;
 }
 #report_heading4 {
-  width: 160px;
+  width: 15%;
   background: #19d81222;
   border: 1px solid #2cb67d;
   border-radius: 8px;
@@ -177,15 +177,15 @@ body{
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* .report_element1, .report_element4 {
-  width: 39%;
-}
-.report_element2 {
-  width: 31%;
+.report_element1, .report_element2 {
+  width: 41%;
 }
 .report_element3 {
   width: 100%;
-} */
+}
+.report_element4 {
+  width: 100%;
+}
 .report_brandwise_table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
