@@ -116,6 +116,9 @@ $(document).ready(function () {
       p1.classList.add("report-element_heading");
       let p2 = document.createElement("p");
       p2.innerHTML = resp[key] || "N/A";
+      if(key === 'Conversion Rate'){
+        p2.innerHTML = resp.convrsn_rate || "N/A";
+      }
       p2.classList.add("report-element_count");
       div.append(p1, p2);
       $("#report_heading2_div").append(div);
