@@ -247,41 +247,83 @@ body{
   body{
     padding: 0;
   }
+  .reports{
+    overflow: scroll;
+    padding-right: 10px;
+  }
+  .report_header{
+    padding: 20px;
+    padding-bottom: 0;
+    width: auto;
+  }
   .report_container{
     width: 100%;
   }
   .report-element_count{
     font-size: 1em;
   }
-  .report_element1, .report_element2, .report_element3, .report_element4{
-    width: 100%;
+  .report_element2, .report_element1{
+    width: 38%;
+  } 
+  .report_element3, .report_element4{
+    width: 100px;
     overflow: hidden;
     height: 72px;
   }
   .report_header_heading{
-    width: 52%;
+    width: 34%;
+    font-size: 18px;
+    padding: 0;
   }
   .report_calendar{
-    width: 38%;
+    width: 63%;
+    padding: 0;
   }
   .report_column{
     padding: 10px 6px;
+    margin-right: 10px;
   }
   .report_selectors{
     padding: 7px 0px;
     width: 100%;
   }
   .dropbtn{
-    width: 100px;
+    width: 100%;
   }
-  #report_heading1, #report_heading2,#report_heading3, #report_heading4{
-    width: 22%;
+  #report_heading2,#report_heading1{
+    min-width: 250px;
+  }
+  
+  #report_heading3, #report_heading4{
+    width: auto;
   }
   .report_column_heading{
     height: 40px;
   }
-  .report_calendar_picker::-webkit-calendar-picker-indicator{
+  /* .report_calendar_picker::-webkit-calendar-picker-indicator{
     width: 2px;
     height: 2px;
+  } */
+  .report_calendar_picker{
+    font-size: 11px;
+    margin-right: 5px;
+  }
+  .report_calendar_picker::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    display: block;
+    background: url(https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853) no-repeat;
+    transform: rotate(90deg);
+    background-size: cover;
+    width: 2px;
+    height: 8px;
+    filter: invert(1);
+    cursor: pointer;
+  }
+  .dropdown{
+    margin: auto;
+    width: 80%;
+  }
+  .dropdown-content{
+    min-width: 100%;
   }
 }
