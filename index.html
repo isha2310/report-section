@@ -12,8 +12,10 @@
         <div class="report_header" >
             <div class="report_header_heading" >Lifetime brand report</div>
             <div class="report_calendar" >
-                <input type="date" class="report_calendar_picker" id="report_cal1" />
-                <input type="date" class="report_calendar_picker" id="report_cal2" />
+                <!-- <input type="date" class="report_calendar_picker" id="report_cal1" />
+                <input type="date" class="report_calendar_picker" id="report_cal2" /> -->
+                <input type="text" name="daterange" id="daterange" class="date_picker" />
+                <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow" />
             </div>
         </div>
         <div class="reports" >
@@ -44,7 +46,8 @@
         </div>
         <div class="report_selectors" >
             <div class="dropdown">
-                <button class="dropbtn" id="dropbtn1">Brand Name
+                <button class="dropbtn" id="dropbtn1">
+                    <input placeholder="Brand Name" class="brand_input" />
                     <img src="https://cdn.shopify.com/s/files/1/0522/7020/3059/files/arrow.png?v=1637577853" class="dropdown_arrow" />
                 </button>
                 <div id="myDropdown1" class="dropdown-content dropdown_brand">
@@ -57,6 +60,10 @@
             </div>
         </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script type="text/javascript" src="./index.js" ></script>
 </body>
 </html>
